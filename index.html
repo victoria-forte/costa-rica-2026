@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Go Girls! — Costa Rica 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink-light: #fff0f3;
+      --pink: #ff6b9d;
+      --pink-dark: #e84583;
+      --coral: #ff8a80;
+      --peach: #ffab91;
+      --orange: #ff7043;
+      --gold: #ffd54f;
+      --white: #ffffff;
+      --text: #4a2040;
+      --text-light: #7a5070;
+      --card-bg: rgba(255, 255, 255, 0.65);
+      --card-border: rgba(255, 255, 255, 0.8);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(255, 182, 193, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(255, 167, 138, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(255, 107, 157, 0.25) 0%, transparent 50%),
+        linear-gradient(135deg, #ff9a9e 0%, #fecfef 25%, #fda085 50%, #ff9a9e 75%, #f6d365 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .emojis-top {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      color: var(--white);
+      text-shadow: 2px 4px 12px rgba(200, 50, 100, 0.35), 0 0 40px rgba(255, 255, 255, 0.15);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      text-shadow: 1px 2px 8px rgba(200, 50, 100, 0.25);
+      margin-top: 0.4rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .header-decoration {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .header-decoration span {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--white);
+      opacity: 0.7;
+    }
+
+    .header-decoration span:nth-child(2) { width: 12px; height: 12px; opacity: 0.9; }
+
+    /* ── DAYS GRID ── */
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      padding-bottom: 4rem;
+    }
+
+    .day-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 2px solid var(--card-border);
+      border-radius: 24px;
+      padding: 1.75rem 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .day-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .day-card:nth-child(1)::before { background: linear-gradient(90deg, #ff6b9d, #ff8a80); }
+    .day-card:nth-child(2)::before { background: linear-gradient(90deg, #ff8a80, #ffab91); }
+    .day-card:nth-child(3)::before { background: linear-gradient(90deg, #ffab91, #ffd54f); }
+    .day-card:nth-child(4)::before { background: linear-gradient(90deg, #ffd54f, #ff6b9d); }
+
+    .day-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+    }
+
+    .day-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .day-name {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.35rem;
+      color: var(--pink-dark);
+      margin-bottom: 0.15rem;
+    }
+
+    .day-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px dashed rgba(255, 107, 157, 0.25);
+    }
+
+    .event {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .event:last-child { margin-bottom: 0; }
+
+    .event-time {
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--pink), var(--coral));
+      padding: 0.25rem 0.55rem;
+      border-radius: 8px;
+      min-width: 58px;
+      text-align: center;
+      margin-top: 2px;
+      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.3);
+    }
+
+    .event-desc {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .event-desc .venue {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .dinner-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #ffd54f, #ffab91);
+      color: var(--text);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 0.2rem;
+    }
+
+    .adventure-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #81c784, #4caf50);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 0.2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer p {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.4rem;
+      color: var(--white);
+      text-shadow: 1px 2px 8px rgba(200, 50, 100, 0.25);
+    }
+
+    footer .footer-emojis {
+      font-size: 1.6rem;
+      margin-top: 0.5rem;
+      animation: float 3s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    /* ── FLOATING DECORATIONS ── */
+    .floating {
+      position: fixed;
+      font-size: 2rem;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 20s ease-in-out infinite;
+    }
+
+    .floating:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .floating:nth-child(2) { top: 30%; right: 8%; animation-delay: -5s; font-size: 1.5rem; }
+    .floating:nth-child(3) { top: 60%; left: 3%; animation-delay: -10s; font-size: 2.5rem; }
+    .floating:nth-child(4) { top: 80%; right: 5%; animation-delay: -15s; font-size: 1.8rem; }
+    .floating:nth-child(5) { top: 45%; left: 90%; animation-delay: -7s; font-size: 2.2rem; }
+    .floating:nth-child(6) { top: 15%; left: 50%; animation-delay: -12s; font-size: 1.4rem; }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(15px, -20px) rotate(5deg); }
+      50% { transform: translate(-10px, 15px) rotate(-3deg); }
+      75% { transform: translate(20px, 10px) rotate(4deg); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .days-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 2.4rem; }
+      .subtitle { font-size: 1rem; }
+      .days-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .day-card { padding: 1.5rem 1.25rem; }
+      .emojis-top { font-size: 1.5rem; }
+      header { padding: 2.5rem 1.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Floating decorations -->
+<div class="floating">🌺</div>
+<div class="floating">🦜</div>
+<div class="floating">🌴</div>
+<div class="floating">🐚</div>
+<div class="floating">🌊</div>
+<div class="floating">🦋</div>
+
+<header>
+  <div class="emojis-top">🏖️ 🌺 🏄‍♀️ 🌅 🌸 🍹 🌴 🐒 🌊</div>
+  <h1>Let's Go Girls!</h1>
+  <p class="subtitle">Costa Rica 2026</p>
+  <div class="header-decoration">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="days-grid">
+
+    <!-- ── WEDNESDAY ── -->
+    <div class="day-card">
+      <div class="day-emoji">✈️</div>
+      <div class="day-name">Wednesday</div>
+      <div class="day-date">April 29</div>
+
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Flight to CR!!! 🎉</div>
+      </div>
+      <div class="event">
+        <div class="event-time">12:30 PM</div>
+        <div class="event-desc">Shuttle to Villa 🚐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">2 PM</div>
+        <div class="event-desc">Arrival + Get Settled 🏡</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3 PM</div>
+        <div class="event-desc">Pool Hangs & Unwind 🏊‍♀️</div>
+      </div>
+      <div class="event">
+        <div class="event-time">6:30 PM</div>
+        <div class="event-desc">
+          Dinner 🍽️
+          <span class="venue">@ L'Estanco The Hidden Garden</span>
+          <span class="dinner-tag">dinner reservation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── THURSDAY ── -->
+    <div class="day-card">
+      <div class="day-emoji">🌴</div>
+      <div class="day-name">Thursday</div>
+      <div class="day-date">April 30</div>
+
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥞</div>
+      </div>
+      <div class="event">
+        <div class="event-time">10:30 AM</div>
+        <div class="event-desc">Head to Tamarindo Town for exploring & beach hangs 🏖️</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3:30 PM</div>
+        <div class="event-desc">Back to Villa to chill & get ready for dinner 💅</div>
+      </div>
+      <div class="event">
+        <div class="event-time">6:30 PM</div>
+        <div class="event-desc">
+          Dinner 🍹
+          <span class="venue">@ Dragonfly Bar and Grill</span>
+          <span class="dinner-tag">dinner reservation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FRIDAY ── -->
+    <div class="day-card">
+      <div class="day-emoji">🦜</div>
+      <div class="day-name">Friday</div>
+      <div class="day-date">May 1</div>
+
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥑</div>
+      </div>
+      <div class="event">
+        <div class="event-time">10:30 AM</div>
+        <div class="event-desc">
+          Departure for Ziplining Adventure 🤩
+          <span class="adventure-tag">adventure</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">2 PM</div>
+        <div class="event-desc">Return from Zipline 🌿</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3 PM</div>
+        <div class="event-desc">Chill at the Villa 😎</div>
+      </div>
+      <div class="event">
+        <div class="event-time">7:30 PM</div>
+        <div class="event-desc">
+          Beachfront Dinner 🌅
+          <span class="venue">@ Pangas</span>
+          <span class="dinner-tag">dinner reservation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SATURDAY ── -->
+    <div class="day-card">
+      <div class="day-emoji">⛵</div>
+      <div class="day-name">Saturday</div>
+      <div class="day-date">May 2</div>
+
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🍳</div>
+      </div>
+      <div class="event">
+        <div class="event-time">12 PM</div>
+        <div class="event-desc">Lunch in town pre-catamaran 🥗</div>
+      </div>
+      <div class="event">
+        <div class="event-time">1:30 PM</div>
+        <div class="event-desc">
+          Sunset Catamaran 🚤🌅
+          <span class="venue">1:30 PM – 5:30 PM</span>
+          <span class="adventure-tag">adventure</span>
+        </div>
+      </div>
+      <div class="event">
+        <div class="event-time">7 PM</div>
+        <div class="event-desc">
+          Chef Dinner @ Villa 👩‍🍳
+          <span class="dinner-tag">private chef</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Pura Vida, baby! 🌺</p>
+  <div class="footer-emojis">🌴 🥥 🌸 🦩 🌊</div>
+</footer>
+
+</body>
+</html>
