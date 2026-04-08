@@ -116,7 +116,7 @@
     /* ── DAYS GRID ── */
     .days-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.25rem;
       padding-bottom: 4rem;
     }
@@ -145,6 +145,7 @@
     .day-card:nth-child(2)::before { background: linear-gradient(90deg, #ff8a80, #ffab91); }
     .day-card:nth-child(3)::before { background: linear-gradient(90deg, #ffab91, #ffd54f); }
     .day-card:nth-child(4)::before { background: linear-gradient(90deg, #ffd54f, #ff6b9d); }
+    .day-card:nth-child(5)::before { background: linear-gradient(90deg, #ff6b9d, #ce93d8); }
 
     .day-card:hover {
       transform: translateY(-6px);
@@ -285,7 +286,11 @@
     }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
+    @media (max-width: 1200px) {
+      .days-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 900px) {
       .days-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -447,11 +452,31 @@
       </div>
     </div>
 
+    <!-- ── SUNDAY ── -->
+    <div class="day-card">
+      <div class="day-emoji">🛫</div>
+      <div class="day-name">Sunday</div>
+      <div class="day-date">May 3</div>
+
+      <div class="event">
+        <div class="event-time">8 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Shuttle leaves for airport 🚐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">1:15 PM</div>
+        <div class="event-desc">Flight to YYZ ✈️🇨🇦</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
 <footer>
-  <p>Pura Vida, baby! 🌺</p>
+  <p>Long Live the E-Coli Explorers 🌺</p>
   <div class="footer-emojis">🌴 🥥 🌸 🦩 🌊</div>
 </footer>
 
