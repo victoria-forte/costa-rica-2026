@@ -52,7 +52,7 @@
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 100%;
       margin: 0 auto;
       padding: 0 1.5rem;
       position: relative;
@@ -116,18 +116,9 @@
     /* ── DAYS GRID ── */
     .days-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      padding-bottom: 1.5rem;
-    }
-
-    .days-grid-bottom {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-      padding-bottom: 2.5rem;
-      max-width: 66.666%;
-      margin: 0 auto;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      padding-bottom: 2rem;
     }
 
     .day-card {
@@ -135,17 +126,11 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border: 2px solid var(--card-border);
-      border-radius: 24px;
-      padding: 1.75rem 2rem;
+      border-radius: 20px;
+      padding: 1.1rem 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
       overflow: hidden;
-    }
-
-    .day-card .events-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem 1.5rem;
     }
 
     .day-card::before {
@@ -163,37 +148,37 @@
     .day-card.color-5::before { background: linear-gradient(90deg, #ff6b9d, #ce93d8); }
 
     .day-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(255, 107, 157, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(255, 107, 157, 0.2);
     }
 
     .day-emoji {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
     }
 
     .day-name {
       font-family: 'Pacifico', cursive;
-      font-size: 1.35rem;
+      font-size: 1.05rem;
       color: var(--pink-dark);
-      margin-bottom: 0.15rem;
+      margin-bottom: 0.05rem;
     }
 
     .day-date {
-      font-size: 0.8rem;
+      font-size: 0.68rem;
       font-weight: 600;
       color: var(--text-light);
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.5rem;
       border-bottom: 2px dashed rgba(255, 107, 157, 0.25);
     }
 
     .event {
       display: flex;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
+      gap: 0.5rem;
+      margin-bottom: 0.55rem;
       align-items: flex-start;
     }
 
@@ -201,28 +186,28 @@
 
     .event-time {
       flex-shrink: 0;
-      font-size: 0.7rem;
+      font-size: 0.58rem;
       font-weight: 700;
       color: var(--white);
       background: linear-gradient(135deg, var(--pink), var(--coral));
-      padding: 0.25rem 0.55rem;
-      border-radius: 8px;
-      min-width: 58px;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      min-width: 48px;
       text-align: center;
-      margin-top: 2px;
-      box-shadow: 0 2px 8px rgba(255, 107, 157, 0.3);
+      margin-top: 1px;
+      box-shadow: 0 2px 6px rgba(255, 107, 157, 0.3);
     }
 
     .event-desc {
-      font-size: 0.88rem;
+      font-size: 0.72rem;
       font-weight: 500;
       color: var(--text);
-      line-height: 1.45;
+      line-height: 1.35;
     }
 
     .event-desc .venue {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.64rem;
       font-weight: 400;
       color: var(--text-light);
       font-style: italic;
@@ -232,26 +217,26 @@
       display: inline-block;
       background: linear-gradient(135deg, #ffd54f, #ffab91);
       color: var(--text);
-      font-size: 0.65rem;
+      font-size: 0.55rem;
       font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
+      padding: 0.1rem 0.4rem;
+      border-radius: 5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
     .adventure-tag {
       display: inline-block;
       background: linear-gradient(135deg, #81c784, #4caf50);
       color: white;
-      font-size: 0.65rem;
+      font-size: 0.55rem;
       font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 6px;
+      padding: 0.1rem 0.4rem;
+      border-radius: 5px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
     /* ── VILLA LINK ── */
@@ -338,18 +323,17 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
-      .days-grid { grid-template-columns: repeat(2, 1fr); }
-      .days-grid-bottom { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
-      .day-card .events-wrap { grid-template-columns: 1fr 1fr; }
+      .days-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    @media (max-width: 740px) {
+    @media (max-width: 768px) {
+      .days-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
       h1 { font-size: 2.4rem; }
       .subtitle { font-size: 1rem; }
-      .days-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .days-grid-bottom { grid-template-columns: 1fr; max-width: 100%; gap: 1rem; }
-      .day-card { padding: 1.5rem 1.25rem; }
-      .day-card .events-wrap { grid-template-columns: 1fr; }
+      .days-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 360px; margin: 0 auto; }
       .emojis-top { font-size: 1.5rem; }
       header { padding: 2.5rem 1.5rem 1.5rem; }
     }
@@ -382,30 +366,28 @@
       <div class="day-emoji">✈️</div>
       <div class="day-name">Wednesday</div>
       <div class="day-date">April 29</div>
-      <div class="events-wrap">
-        <div class="event">
-          <div class="event-time">9 AM</div>
-          <div class="event-desc">Flight to CR!!! 🎉</div>
-        </div>
-        <div class="event">
-          <div class="event-time">12:30 PM</div>
-          <div class="event-desc">Shuttle to Villa 🚐</div>
-        </div>
-        <div class="event">
-          <div class="event-time">2 PM</div>
-          <div class="event-desc">Arrival + Get Settled 🏡</div>
-        </div>
-        <div class="event">
-          <div class="event-time">3 PM</div>
-          <div class="event-desc">Pool Hangs & Unwind 🏊‍♀️</div>
-        </div>
-        <div class="event">
-          <div class="event-time">6:30 PM</div>
-          <div class="event-desc">
-            Dinner 🍽️
-            <span class="venue">@ L'Estanco The Hidden Garden</span>
-            <span class="dinner-tag">dinner reservation</span>
-          </div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Flight to CR!!! 🎉</div>
+      </div>
+      <div class="event">
+        <div class="event-time">12:30 PM</div>
+        <div class="event-desc">Shuttle to Villa 🚐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">2 PM</div>
+        <div class="event-desc">Arrival + Get Settled 🏡</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3 PM</div>
+        <div class="event-desc">Pool Hangs & Unwind 🏊‍♀️</div>
+      </div>
+      <div class="event">
+        <div class="event-time">6:30 PM</div>
+        <div class="event-desc">
+          Dinner 🍽️
+          <span class="venue">@ L'Estanco The Hidden Garden</span>
+          <span class="dinner-tag">dinner reservation</span>
         </div>
       </div>
     </div>
@@ -415,26 +397,24 @@
       <div class="day-emoji">🌴</div>
       <div class="day-name">Thursday</div>
       <div class="day-date">April 30</div>
-      <div class="events-wrap">
-        <div class="event">
-          <div class="event-time">9 AM</div>
-          <div class="event-desc">Breakfast @ Villa 🥞</div>
-        </div>
-        <div class="event">
-          <div class="event-time">10:30 AM</div>
-          <div class="event-desc">Head to Tamarindo Town for exploring & beach hangs 🏖️</div>
-        </div>
-        <div class="event">
-          <div class="event-time">3:30 PM</div>
-          <div class="event-desc">Back to Villa to chill & get ready for dinner 💅</div>
-        </div>
-        <div class="event">
-          <div class="event-time">6:30 PM</div>
-          <div class="event-desc">
-            Dinner 🍹
-            <span class="venue">@ Dragonfly Bar and Grill</span>
-            <span class="dinner-tag">dinner reservation</span>
-          </div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥞</div>
+      </div>
+      <div class="event">
+        <div class="event-time">10:30 AM</div>
+        <div class="event-desc">Tamarindo Town — exploring & beach hangs 🏖️</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3:30 PM</div>
+        <div class="event-desc">Back to Villa to chill & get ready 💅</div>
+      </div>
+      <div class="event">
+        <div class="event-time">6:30 PM</div>
+        <div class="event-desc">
+          Dinner 🍹
+          <span class="venue">@ Dragonfly Bar & Grill</span>
+          <span class="dinner-tag">dinner reservation</span>
         </div>
       </div>
     </div>
@@ -444,69 +424,61 @@
       <div class="day-emoji">🦜</div>
       <div class="day-name">Friday</div>
       <div class="day-date">May 1</div>
-      <div class="events-wrap">
-        <div class="event">
-          <div class="event-time">9 AM</div>
-          <div class="event-desc">Breakfast @ Villa 🥑</div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥑</div>
+      </div>
+      <div class="event">
+        <div class="event-time">10:30 AM</div>
+        <div class="event-desc">
+          Ziplining Adventure 🤩
+          <span class="adventure-tag">adventure</span>
         </div>
-        <div class="event">
-          <div class="event-time">10:30 AM</div>
-          <div class="event-desc">
-            Departure for Ziplining Adventure 🤩
-            <span class="adventure-tag">adventure</span>
-          </div>
-        </div>
-        <div class="event">
-          <div class="event-time">2 PM</div>
-          <div class="event-desc">Return from Zipline 🌿</div>
-        </div>
-        <div class="event">
-          <div class="event-time">3 PM</div>
-          <div class="event-desc">Chill at the Villa 😎</div>
-        </div>
-        <div class="event">
-          <div class="event-time">7:30 PM</div>
-          <div class="event-desc">
-            Beachfront Dinner 🌅
-            <span class="venue">@ Pangas</span>
-            <span class="dinner-tag">dinner reservation</span>
-          </div>
+      </div>
+      <div class="event">
+        <div class="event-time">2 PM</div>
+        <div class="event-desc">Return from Zipline 🌿</div>
+      </div>
+      <div class="event">
+        <div class="event-time">3 PM</div>
+        <div class="event-desc">Chill at the Villa 😎</div>
+      </div>
+      <div class="event">
+        <div class="event-time">7:30 PM</div>
+        <div class="event-desc">
+          Beachfront Dinner 🌅
+          <span class="venue">@ Pangas</span>
+          <span class="dinner-tag">dinner reservation</span>
         </div>
       </div>
     </div>
-
-  </div>
-
-  <div class="days-grid-bottom">
 
     <!-- ── SATURDAY ── -->
     <div class="day-card color-4">
       <div class="day-emoji">⛵</div>
       <div class="day-name">Saturday</div>
       <div class="day-date">May 2</div>
-      <div class="events-wrap">
-        <div class="event">
-          <div class="event-time">9 AM</div>
-          <div class="event-desc">Breakfast @ Villa 🍳</div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🍳</div>
+      </div>
+      <div class="event">
+        <div class="event-time">12 PM</div>
+        <div class="event-desc">Lunch in town pre-catamaran 🥗</div>
+      </div>
+      <div class="event">
+        <div class="event-time">1:30 PM</div>
+        <div class="event-desc">
+          Sunset Catamaran 🚤🌅
+          <span class="venue">1:30 – 5:30 PM</span>
+          <span class="adventure-tag">adventure</span>
         </div>
-        <div class="event">
-          <div class="event-time">12 PM</div>
-          <div class="event-desc">Lunch in town pre-catamaran 🥗</div>
-        </div>
-        <div class="event">
-          <div class="event-time">1:30 PM</div>
-          <div class="event-desc">
-            Sunset Catamaran 🚤🌅
-            <span class="venue">1:30 PM – 5:30 PM</span>
-            <span class="adventure-tag">adventure</span>
-          </div>
-        </div>
-        <div class="event">
-          <div class="event-time">7 PM</div>
-          <div class="event-desc">
-            Chef Dinner @ Villa 👩‍🍳
-            <span class="dinner-tag">private chef</span>
-          </div>
+      </div>
+      <div class="event">
+        <div class="event-time">7 PM</div>
+        <div class="event-desc">
+          Chef Dinner @ Villa 👩‍🍳
+          <span class="dinner-tag">private chef</span>
         </div>
       </div>
     </div>
@@ -516,19 +488,17 @@
       <div class="day-emoji">🛫</div>
       <div class="day-name">Sunday</div>
       <div class="day-date">May 3</div>
-      <div class="events-wrap">
-        <div class="event">
-          <div class="event-time">8 AM</div>
-          <div class="event-desc">Breakfast @ Villa 🥐</div>
-        </div>
-        <div class="event">
-          <div class="event-time">9 AM</div>
-          <div class="event-desc">Shuttle leaves for airport 🚐</div>
-        </div>
-        <div class="event">
-          <div class="event-time">1:15 PM</div>
-          <div class="event-desc">Flight to YYZ ✈️🇨🇦</div>
-        </div>
+      <div class="event">
+        <div class="event-time">8 AM</div>
+        <div class="event-desc">Breakfast @ Villa 🥐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">9 AM</div>
+        <div class="event-desc">Shuttle to airport 🚐</div>
+      </div>
+      <div class="event">
+        <div class="event-time">1:15 PM</div>
+        <div class="event-desc">Flight to YYZ ✈️🇨🇦</div>
       </div>
     </div>
 
